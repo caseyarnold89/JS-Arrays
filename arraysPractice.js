@@ -90,6 +90,8 @@ function divider (nums, evens, odds) {
     return arrayofArrays;
 }
 
+divider(nums, evens, odds);
+
 
   //Code Here
 
@@ -152,15 +154,18 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 function removeItem (myGroceryList, itemtoRemove) {
-    for (var i = 0; i < myGroceryList.length; i++) {
-        if (myGroceryList[i] === itemtoRemove) {
-            myGroceryList.splice(i, 1);
+    var usedGroceryList = myGroceryList;
+    for (var i = 0; i < usedGroceryList.length; i++) {
+        if (usedGroceryList[i] === itemtoRemove) {
+            usedGroceryList.splice(i, 1);
         }
     }
-    return myGroceryList;
+    return usedGroceryList;
+    // return usedGroceryList;
 }
 
 function addItem (myGroceryList, itemtoAdd) {
+    // var newGroceryList = [];
     myGroceryList.push(itemtoAdd);
     return myGroceryList;
 }

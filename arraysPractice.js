@@ -75,7 +75,7 @@ var evens = [];
 var odds = [];
 //Write a function called divider that is given three arguments, nums, evens, and odds.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
-function divider (nums, evens, odds) {
+function divider (nums) {
     var arrayofArrays = [];
     for (var i = 0; i < nums.length; i++) {
         if (nums[i] % 2 === 0) {
@@ -85,12 +85,12 @@ function divider (nums, evens, odds) {
             odds.push(nums[i]);
         }
     }
-    arrayofArrays.push(evens);
     arrayofArrays.push(odds);
+    arrayofArrays.unshift(evens);
     return arrayofArrays;
 }
 
-divider(nums, evens, odds);
+divider(nums);
 
 
   //Code Here
@@ -108,15 +108,15 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-function finder (getRandomArbitrary, numbers) {
-    var numtoFind = getRandomArbitrary();
-    var found = false;
+function finder (numbers) {
+    var numToFind = getRandomArbitrary();
+    var numFound = false;
     for (var i = 0; i < numbers.length; i++) {
-        if (numbers[i] === numtoFind) {
-            found = true;
+        if (numToFind === numbers[i]) {
+            numFound = true;
         }
     }
-    return found;
+    return numFound;
 }
 
 //Next problem
@@ -153,20 +153,25 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   myGroceryList then return the new, updated grocery list.
 */
 
-function removeItem (myGroceryList, itemtoRemove) {
-    var usedGroceryList = myGroceryList;
-    for (var i = 0; i < usedGroceryList.length; i++) {
-        if (usedGroceryList[i] === itemtoRemove) {
-            usedGroceryList.splice(i, 1);
+function removeItem (myGroceryList, itemToRemove) {
+    for (var i = 0; i < myGroceryList.length; i++) {
+        if (itemToRemove === myGroceryList[i]) {
+            myGroceryList.splice(i,1);
         }
     }
-    return usedGroceryList;
-    // return usedGroceryList;
+    return myGroceryList;   
 }
 
 function addItem (myGroceryList, itemtoAdd) {
-    // var newGroceryList = [];
-    myGroceryList.push(itemtoAdd);
+    var itemFound = false;
+    for (var i = 0; i < myGroceryList; i++) {
+        if (itemtoAdd === myGroceryList[i]) {
+            itemFound = true;
+        }
+    }
+    if (itemFound === false) {
+        myGroceryList.push(itemtoAdd);
+    }
     return myGroceryList;
 }
   //Code Here

@@ -62,6 +62,7 @@ function evenFinder (nums) {
     for (var i = 0; i < nums.length; i++) {
         if (nums[i]%2 > 0) {
             nums.splice(i,1);
+            i--;
         }
     }
     return nums;
@@ -78,7 +79,7 @@ var odds = [];
 function divider (nums) {
     var arrayofArrays = [];
     for (var i = 0; i < nums.length; i++) {
-        if (nums[i] % 2 === 0) {
+        if (nums[i] % 2 == 0) {
             evens.push(nums[i]);
         }
         else {
